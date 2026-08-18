@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Commission Card</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Work+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<button class="edit-toggle" id="editToggle">✎ Edit mode: OFF</button>
+
+<audio id="bgMusic" src="assets/music.mp3" loop preload="auto"></audio>
+<div class="card">
+  <div class="sheet">
+    <span class="tape t1"></span>
+    <span class="tape t2"></span>
+  
+    <!-- Avatar -->
+    <div class="avatar-wrap">
+      <label class="avatar" id="avatarLabel">
+        <img id="avatarImg" alt="avatar">
+        <span id="avatarPlaceholder">photo</span>
+        <span class="plus">+</span>
+        <input type="file" id="avatarInput" accept="image/*">
+      </label>
+        <div class="music-control">
+          <button id="musicToggle" aria-label="Toggle music">♪</button>
+        </div>
+    </div>
+
+    <!-- Name & Tagline -->
+    <div class="name" contenteditable="false" id="nameField">Add name text</div>
+    <div class="tagline" contenteditable="false" id="taglineField">Welcome to my card! Feel free to look around — commission info, socials, and everything you need is right here.</div>
+    <div class="edit-hint">Edit mode is on — klik teks di atas untuk mengubahnya. Data tersimpan otomatis di browser ini.</div>
+
+    <!-- Tab Navigation -->
+    <div class="tabs" id="tabs">
+      <button class="tab-btn active" data-tab="home">Home</button>
+      <button class="tab-btn" data-tab="sheet">Commission Sheet</button>
+      <button class="tab-btn" data-tab="tot">TOT</button>
+      <button class="tab-btn" data-tab="track">Commission Tracking</button>
+      <button class="tab-btn" data-tab="contact">Contact Info</button>
+    </div>
+
+    <!-- ==================== HOME ==================== -->
+    <div class="panel active" data-panel="home">
+      <a class="link-btn" href="#" target="_blank" rel="noopener">
+        <span class="icon">◐</span>
+        <span contenteditable="false" class="linklabel">Instagram</span>
+        <span class="url" contenteditable="false">@yourhandle</span>
+      </a>
+      <a class="link-btn" href="#" target="_blank" rel="noopener">
+        <span class="icon">✕</span>
+        <span contenteditable="false" class="linklabel">X</span>
+        <span class="url" contenteditable="false">@yourhandle</span>
+      </a>
+      <a class="link-btn" href="#" target="_blank" rel="noopener">
+        <span class="icon">♪</span>
+        <span contenteditable="false" class="linklabel">TikTok</span>
+        <span class="url" contenteditable="false">@yourhandle</span>
+      </a>
+      <a class="link-btn" href="#" target="_blank" rel="noopener">
+        <span class="icon">✎</span>
+        <span contenteditable="false" class="linklabel">Vgen</span>
+        <span class="url" contenteditable="false">vgen.co/you</span>
+      </a>
+    </div>
+
+    <!-- ==================== COMMISSION SHEET ==================== -->
+    <div class="panel" data-panel="sheet">
+      <span class="sec-label">Commission Sheet</span>
+      <table class="price">
+        <tr><th>Type</th><th>Price</th></tr>
+        <tr>
+          <td class="row-name" contenteditable="false">Headshot<span class="row-sub" contenteditable="false">Bahu ke atas, shading sederhana</span></td>
+          <td class="p" contenteditable="false">Rp150.000</td>
+        </tr>
+        <tr>
+          <td class="row-name" contenteditable="false">Bust Up<span class="row-sub" contenteditable="false">Dada ke atas, full render</span></td>
+          <td class="p" contenteditable="false">Rp250.000</td>
+        </tr>
+        <tr>
+          <td class="row-name" contenteditable="false">Full Body<span class="row-sub" contenteditable="false">Seluruh badan, full render</span></td>
+          <td class="p" contenteditable="false">Rp450.000</td>
+        </tr>
+        <tr>
+          <td class="row-name" contenteditable="false">Detail Background<span class="row-sub" contenteditable="false">Tambahan background custom</span></td>
+          <td class="p" contenteditable="false">+Rp100.000</td>
+        </tr>
+      </table>
+      <div class="note" contenteditable="false">+ Extra char harga tetap sama or 2 kali lipat (100%)</div>
+
+      <div class="sub-label">Samples</div>
+      <div id="sampleGroups"></div>
+
+      <div class="sub-label">Payment Info</div>
+      <div class="payment-box" contenteditable="false">
+        Bank: BCA — 1234567890 a/n Nama Kamu<br>
+        E-wallet: DANA / OVO — 0812xxxxxxx<br>
+        PayPal: you@email.com
+      </div>
+    </div>
+
+    <!-- ==================== TOT ==================== -->
+    <div class="panel" data-panel="tot">
+      <span class="sec-label">Terms of Trade</span>
+      <ul class="tot-list" contenteditable="false">
+        <li><span class="num">01</span><span>DP 50% di awal, pelunasan setelah sketsa disetujui.</span></li>
+        <li><span class="num">02</span><span>Revisi minor gratis 2x sebelum tahap render final.</span></li>
+        <li><span class="num">03</span><span>Estimasi pengerjaan 3–10 hari tergantung antrian &amp; kompleksitas.</span></li>
+        <li><span class="num">04</span><span>NSFW / gore / real person: tanya dulu, tidak semua diterima.</span></li>
+        <li><span class="num">05</span><span>Hasil boleh dipakai untuk personal use, bukan untuk dijual ulang.</span></li>
+        <li><span class="num">06</span><span>Pembatalan setelah sketsa: DP tidak dikembalikan.</span></li>
+      </ul>
+    </div>
+
+    <!-- ==================== TRACKING ==================== -->
+    <div class="panel" data-panel="track">
+      <span class="sec-label">Commission Tracking</span>
+      <a class="link-btn" href="https://trello.com/b/xxxxxxx/your-commission-board" target="_blank" rel="noopener">
+        <span class="icon">▤</span>
+        <span contenteditable="false" class="linklabel">Open live board on Trello</span>
+        <span class="url" contenteditable="false">trello.com</span>
+      </a>
+      <div class="board-scroll" id="boardScroll"></div>
+    </div>
+
+    <!-- ==================== CONTACT ==================== -->
+    <div class="panel" data-panel="contact">
+      <span class="sec-label">Contact Info</span>
+      <div class="contact-grid">
+        <div class="contact-item"><span class="k">Email</span><span class="v" contenteditable="false">you@email.com</span></div>
+        <div class="contact-item"><span class="k">Discord</span><span class="v" contenteditable="false">yourname#0000</span></div>
+        <div class="contact-item"><span class="k">Line</span><span class="v" contenteditable="false">yourlineid</span></div>
+        <div class="contact-item"><span class="k">Timezone</span><span class="v" contenteditable="false">GMT+7 (WIB)</span></div>
+        <div class="contact-item"><span class="k">Response</span><span class="v" contenteditable="false">1–2 hari</span></div>
+      </div>
+    </div>
+
+  </div>
+  <footer contenteditable="false" id="footerField">feel free to chat 🖊</footer>
+</div>
+
+<script src="js/app.js"></script>
+</body>
+</html>
