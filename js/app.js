@@ -239,6 +239,7 @@
   requestAnimationFrame(() => {
     requestAnimationFrame(() => {
       triggerEntranceAnimations();
+      popInSamples();
       popInLinks();
     });
   });

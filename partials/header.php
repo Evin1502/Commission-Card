@@ -1,3 +1,11 @@
+<!-- Scrolling Marquee Bar Title -->
+<div class="marquee-container">
+  <div class="marquee-track">
+    <img src="assets/Bar Title.png" alt="Welcome Bar">
+    <img src="assets/Bar Title.png" alt="Welcome Bar">
+  </div>
+</div>
+
 <div class="avatar-wrap">
   <div class="avatar" id="avatarLabel">
     <img id="avatarImg" src="assets/avatar.png" alt="avatar" style="display:block">
@@ -15,4 +23,5 @@
   <button class="tab-btn" data-tab="sheet">Commission Sheet</button>
   <button class="tab-btn" data-tab="tot">TOT</button>
   <button class="tab-btn" data-tab="track">Commission Tracking</button>
+  <button class="tab-btn" data-tab="contact">Contact Info</button>
 </div>

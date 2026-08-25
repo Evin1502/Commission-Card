@@ -5,7 +5,7 @@
     <tr><th>Type</th><th>Price</th></tr>
     <tr>
       <td class="row-name">Headshot<span class="row-sub">Bahu ke atas, shading sederhana</span></td>
-      <td class="p">Rp150.000</td>
+      <td class="p">Rp50.000</td>
     </tr>
     <tr>
       <td class="row-name">Bust Up<span class="row-sub">Dada ke atas, full render</span></td>
