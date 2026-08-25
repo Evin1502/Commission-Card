@@ -11,7 +11,7 @@
 </head>
 <body>
 
-<button class="edit-toggle" id="editToggle">✎ Edit mode: OFF</button>
+
 
 <audio id="bgMusic" src="assets/music.mp3" loop preload="auto"></audio>
 <div class="card">
@@ -27,7 +27,7 @@
     <?php include 'partials/panel-track.php'; ?>
 
   </div>
-  <footer contenteditable="false" id="footerField">feel free to chat 🖊</footer>
+  <footer id="footerField">feel free to chat 🖊</footer>
 </div>
 
 <script src="js/app.js"></script>

@@ -92,10 +92,13 @@ body{
 
 @media (max-width:380px){
   .music-control{
-    /* adjust when viewport is narrow — move below avatar */
+    /* adjust when viewport is narrow — move to bottom right of avatar */
     position:absolute;
-    top:100%;
-    right:0;
+    top:auto;
+    bottom:0;
+    left:calc(50% + 35px);
+    right:auto;
+    transform:none;
   }
 
   .music-control button{
@@ -104,43 +107,7 @@ body{
     font-size:13px;
   }
 }
-/* ---------- Edit Mode Toggle ---------- */
-.edit-toggle{
-  position:fixed;
-  top:14px; right:14px;
-  z-index:50;
-  background:var(--ink);
-  color:var(--paper);
-  border:none;
-  font-family:'Space Mono', monospace;
-  font-size:11px;
-  letter-spacing:.04em;
-  padding:8px 14px;
-  border-radius:20px;
-  cursor:pointer;
-  box-shadow:var(--shadow);
-  opacity:.85;
-  transition:opacity .2s, transform .2s;
-}
-.edit-toggle:hover{ opacity:1; transform:scale(1.04); }
-body.editing [contenteditable="true"]{
-  outline:1.5px dashed var(--pink);
-  outline-offset:3px;
-  border-radius:4px;
-  cursor:text;
-}
-body.editing [contenteditable="true"]:hover{
-  background:rgba(225,116,151,0.08);
-}
-.edit-hint{
-  display:none;
-  text-align:center;
-  font-family:'Space Mono',monospace;
-  font-size:11px;
-  color:var(--pink);
-  margin:6px 0 18px;
-}
-body.editing .edit-hint{display:block;}
+
 
 /* =============================================================
    ENTRANCE ANIMATIONS
@@ -260,17 +227,7 @@ body.editing .edit-hint{display:block;}
   transform:scale(1.06);
   box-shadow: 0 8px 24px rgba(42,38,34,0.22);
 }
-.avatar img{width:100%;height:100%;object-fit:cover;display:none;}
-.avatar .plus{
-  position:absolute; bottom:3px; right:3px;
-  width:28px;height:28px;border-radius:50%;
-  background:var(--teal); color:var(--white);
-  display:none; align-items:center; justify-content:center;
-  font-size:17px; border:2px solid var(--white);
-  box-shadow:0 2px 6px rgba(0,0,0,0.2);
-}
-body.editing .avatar .plus{display:flex;}
-.avatar input{display:none;}
+.avatar img{width:100%;height:100%;object-fit:cover;display:block;}
 
 /* ---------- Name & Tagline ---------- */
 .name{
@@ -448,13 +405,25 @@ table.price tr:nth-child(even) td{ background:rgba(62,142,137,0.04); }
 
 /* ---------- Note Box ---------- */
 .note{
+  position:relative;
   font-size:13px;
   color:var(--ink-soft);
   background:var(--paper-2);
-  border-left:3px solid var(--mustard);
-  padding:10px 14px;
-  border-radius:8px;
-  margin:14px 0;
+  padding:14px 18px 14px 24px;
+  border-radius:14px;
+  margin:16px 0;
+  overflow:hidden;
+  box-shadow:0 2px 8px rgba(42,38,34,0.06);
+  line-height:1.5;
+}
+.note::before{
+  content:'';
+  position:absolute;
+  left:0; top:0; bottom:0;
+  width:6px;
+  background:var(--mustard);
+  border-top-left-radius:14px;
+  border-bottom-left-radius:14px;
 }
 
 /* ---------- Sample Grids ---------- */
@@ -493,51 +462,126 @@ table.price tr:nth-child(even) td{ background:rgba(62,142,137,0.04); }
 .sample-slot img{
   width:100%; height:100%; object-fit:cover; display:block;
 }
-.sample-slot input{display:none;}
-body.editing .sample-slot{ cursor:pointer; }
-body.editing .sample-slot:hover{
-  border-color:var(--teal);
-  box-shadow:0 0 0 3px rgba(62,142,137,0.12);
+
+/* ---------- Home Gallery ---------- */
+.gallery-header-wrap{
+  display:flex;
+  align-items:center;
+  margin-top:14px;
+  margin-bottom:10px;
 }
-.sample-remove{
-  display:none;
-  position:absolute; top:4px; right:4px;
-  width:20px; height:20px; border-radius:50%;
-  background:var(--ink); color:var(--paper);
-  border:1.3px solid var(--white);
-  font-size:12px; line-height:1;
-  align-items:center; justify-content:center;
-  cursor:pointer;
-}
-body.editing .sample-slot.filled .sample-remove{ display:flex; }
-.add-sample-btn{
-  aspect-ratio:3/4;
-  border:1.3px dashed var(--teal);
-  border-radius:12px;
-  background:transparent;
-  color:var(--teal-dark);
+.gallery-badge{
+  display:inline-block;
+  background:#4fc3f7;
+  color:#ffffff;
   font-family:'Space Mono', monospace;
-  font-size:22px;
-  cursor:pointer;
-  display:none;
-  align-items:center; justify-content:center;
-  transition:background .2s;
+  font-weight:700;
+  font-size:11px;
+  letter-spacing:.08em;
+  padding:5px 14px;
+  border-radius:20px;
+  box-shadow:0 3px 8px rgba(79,195,247,0.3);
+  text-transform:uppercase;
 }
-.add-sample-btn:hover{ background:rgba(62,142,137,0.08); }
-body.editing .add-sample-btn.visible{ display:flex; }
+
+.home-gallery{
+  display:flex;
+  gap:10px;
+  margin-bottom:10px;
+  align-items:stretch; /* Align both columns to exact same total height */
+}
+@media (max-width:440px){
+  .home-gallery{ flex-direction:column; }
+}
+
+.gallery-left-col{
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+.gallery-top-pair{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+}
+.gallery-right-col{
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+.gallery-slot{
+  position:relative;
+  border-radius:12px;
+  background:var(--paper-2);
+  overflow:hidden;
+  border:1.5px solid var(--line);
+  transition: transform .25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow .25s, border-color .25s;
+  cursor:pointer;
+}
+.gallery-slot.portrait{
+  aspect-ratio:3/4;
+}
+.gallery-slot.wide{
+  flex:1;
+  min-height:100px;
+}
+.gallery-slot.landscape{
+  flex:1;
+  min-height:75px;
+}
+.gallery-slot img{
+  width:100%; height:100%; object-fit:cover; display:block;
+}
+.gallery-slot:hover{
+  transform:translateY(-3px) scale(1.02);
+  box-shadow:var(--shadow);
+  border-color:var(--teal);
+  z-index:2;
+}
+
+.gallery-footer-wrap{
+  display:flex;
+  justify-content:flex-end;
+  margin:10px 0 16px;
+}
+.gallery-footer-badge{
+  display:inline-block;
+  background:#4fc3f7;
+  color:#ffffff;
+  font-family:'Space Mono', monospace;
+  font-weight:700;
+  font-size:11px;
+  padding:6px 14px;
+  border-radius:8px;
+  transform:rotate(-2deg);
+  box-shadow:0 3px 10px rgba(79,195,247,0.3);
+}
+
+.gallery-bottom-row{
+  display:grid;
+  grid-template-columns:repeat(4, 1fr);
+  gap:8px;
+}
+.gallery-bottom-row .gallery-slot{
+  aspect-ratio:1/1;
+  border-radius:8px;
+}
 
 /* ---------- Scroll-triggered Pop-in Animations ---------- */
 @media (prefers-reduced-motion: no-preference){
-  .sample-slot{
+  .sample-slot, .gallery-slot{
     opacity:0;
     transform:scale(0.35) rotate(-9deg);
     transition:opacity .45s ease, transform .55s cubic-bezier(0.34, 1.56, 0.64, 1);
   }
-  .sample-slot.in-view{
+  .sample-slot.in-view, .gallery-slot.in-view{
     opacity:1;
     transform:scale(1) rotate(0deg);
   }
-  .sample-slot.no-anim{ transition:none !important; }
+  .sample-slot.no-anim, .gallery-slot.no-anim{ transition:none !important; }
 
   .link-btn{
     opacity:0;

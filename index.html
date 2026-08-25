@@ -10,8 +10,6 @@
 </head>
 <body>
 
-<button class="edit-toggle" id="editToggle">✎ Edit mode: OFF</button>
-
 <audio id="bgMusic" src="assets/music.mp3" loop preload="auto"></audio>
 <div class="card">
   <div class="sheet">
@@ -20,21 +18,17 @@
   
     <!-- Avatar -->
     <div class="avatar-wrap">
-      <label class="avatar" id="avatarLabel">
-        <img id="avatarImg" alt="avatar">
-        <span id="avatarPlaceholder">photo</span>
-        <span class="plus">+</span>
-        <input type="file" id="avatarInput" accept="image/*">
-      </label>
-        <div class="music-control">
-          <button id="musicToggle" aria-label="Toggle music">♪</button>
-        </div>
+      <div class="avatar" id="avatarLabel">
+        <img id="avatarImg" src="assets/avatar.png" alt="avatar" style="display:block">
+      </div>
+      <div class="music-control">
+        <button id="musicToggle" aria-label="Toggle music">♪</button>
+      </div>
     </div>
 
     <!-- Name & Tagline -->
-    <div class="name" contenteditable="false" id="nameField">Add name text</div>
-    <div class="tagline" contenteditable="false" id="taglineField">Welcome to my card! Feel free to look around — commission info, socials, and everything you need is right here.</div>
-    <div class="edit-hint">Edit mode is on — klik teks di atas untuk mengubahnya. Data tersimpan otomatis di browser ini.</div>
+    <div class="name" id="nameField">Add name text</div>
+    <div class="tagline" id="taglineField">Welcome to my card! Feel free to look around — commission info, socials, and everything you need is right here.</div>
 
     <!-- Tab Navigation -->
     <div class="tabs" id="tabs">
@@ -49,24 +43,56 @@
     <div class="panel active" data-panel="home">
       <a class="link-btn" href="#" target="_blank" rel="noopener">
         <span class="icon">◐</span>
-        <span contenteditable="false" class="linklabel">Instagram</span>
-        <span class="url" contenteditable="false">@yourhandle</span>
+        <span class="linklabel">Instagram</span>
+        <span class="url">@yourhandle</span>
       </a>
       <a class="link-btn" href="#" target="_blank" rel="noopener">
         <span class="icon">✕</span>
-        <span contenteditable="false" class="linklabel">X</span>
-        <span class="url" contenteditable="false">@yourhandle</span>
+        <span class="linklabel">X</span>
+        <span class="url">@yourhandle</span>
       </a>
       <a class="link-btn" href="#" target="_blank" rel="noopener">
         <span class="icon">♪</span>
-        <span contenteditable="false" class="linklabel">TikTok</span>
-        <span class="url" contenteditable="false">@yourhandle</span>
+        <span class="linklabel">TikTok</span>
+        <span class="url">@yourhandle</span>
       </a>
       <a class="link-btn" href="#" target="_blank" rel="noopener">
         <span class="icon">✎</span>
-        <span contenteditable="false" class="linklabel">Vgen</span>
-        <span class="url" contenteditable="false">vgen.co/you</span>
+        <span class="linklabel">Vgen</span>
+        <span class="url">vgen.co/you</span>
       </a>
+
+      <div class="sub-label">Gallery</div>
+      
+      <div class="gallery-header-wrap">
+        <span class="gallery-badge">COMMISSION</span>
+      </div>
+
+      <div class="home-gallery">
+        <!-- Left Column: 2 Portrait Top + 1 Wide Bottom -->
+        <div class="gallery-left-col">
+          <div class="gallery-top-pair">
+            <div class="gallery-slot portrait"><img src="assets/gallery-1.jpg" alt="Gallery image 1"></div>
+            <div class="gallery-slot portrait"><img src="assets/gallery-2.jpg" alt="Gallery image 2"></div>
+          </div>
+          <div class="gallery-slot wide"><img src="assets/gallery-3.jpg" alt="Gallery image 3"></div>
+        </div>
+
+        <!-- Right Column: 3 Landscape Stacked -->
+        <div class="gallery-right-col">
+          <div class="gallery-slot landscape"><img src="assets/gallery-4.jpg" alt="Gallery image 4"></div>
+          <div class="gallery-slot landscape"><img src="assets/gallery-5.jpg" alt="Gallery image 5"></div>
+          <div class="gallery-slot landscape"><img src="assets/gallery-6.jpg" alt="Gallery image 6"></div>
+        </div>
+      </div>
+
+      <!-- Sub-row for remaining gallery items (7-10) -->
+      <div class="gallery-bottom-row">
+        <div class="gallery-slot"><img src="assets/gallery-7.jpg" alt="Gallery image 7"></div>
+        <div class="gallery-slot"><img src="assets/gallery-8.jpg" alt="Gallery image 8"></div>
+        <div class="gallery-slot"><img src="assets/gallery-9.jpg" alt="Gallery image 9"></div>
+        <div class="gallery-slot"><img src="assets/gallery-10.jpg" alt="Gallery image 10"></div>
+      </div>
     </div>
 
     <!-- ==================== COMMISSION SHEET ==================== -->
@@ -75,29 +101,57 @@
       <table class="price">
         <tr><th>Type</th><th>Price</th></tr>
         <tr>
-          <td class="row-name" contenteditable="false">Headshot<span class="row-sub" contenteditable="false">Bahu ke atas, shading sederhana</span></td>
-          <td class="p" contenteditable="false">Rp150.000</td>
+          <td class="row-name">Headshot<span class="row-sub">Bahu ke atas, shading sederhana</span></td>
+          <td class="p">Rp150.000</td>
         </tr>
         <tr>
-          <td class="row-name" contenteditable="false">Bust Up<span class="row-sub" contenteditable="false">Dada ke atas, full render</span></td>
-          <td class="p" contenteditable="false">Rp250.000</td>
+          <td class="row-name">Bust Up<span class="row-sub">Dada ke atas, full render</span></td>
+          <td class="p">Rp250.000</td>
         </tr>
         <tr>
-          <td class="row-name" contenteditable="false">Full Body<span class="row-sub" contenteditable="false">Seluruh badan, full render</span></td>
-          <td class="p" contenteditable="false">Rp450.000</td>
-        </tr>
-        <tr>
-          <td class="row-name" contenteditable="false">Detail Background<span class="row-sub" contenteditable="false">Tambahan background custom</span></td>
-          <td class="p" contenteditable="false">+Rp100.000</td>
+          <td class="row-name">Full Body<span class="row-sub">Seluruh badan, full render</span></td>
+          <td class="p">Rp450.000</td>
         </tr>
       </table>
-      <div class="note" contenteditable="false">+ Extra char harga tetap sama or 2 kali lipat (100%)</div>
+      <div class="note">+ Detail Background (+Rp100.000): Tambahan background custom</div>
+      <div class="note">+ Extra char harga tetap sama or 2 kali lipat (100%)</div>
 
       <div class="sub-label">Samples</div>
-      <div id="sampleGroups"></div>
+      <div id="sampleGroups">
+        <div class="sample-group">
+          <div class="sample-group-title">
+            <span>Headshot samples</span>
+          </div>
+          <div class="sample-grid">
+            <div class="sample-slot filled"><img src="assets/sample-headshot-1.jpg" alt="Sample 1"></div>
+            <div class="sample-slot filled"><img src="assets/sample-headshot-2.jpg" alt="Sample 2"></div>
+            <div class="sample-slot filled"><img src="assets/sample-headshot-3.jpg" alt="Sample 3"></div>
+          </div>
+        </div>
+        <div class="sample-group">
+          <div class="sample-group-title">
+            <span>Bust Up samples</span>
+          </div>
+          <div class="sample-grid">
+            <div class="sample-slot filled"><img src="assets/sample-bustup-1.jpg" alt="Sample 1"></div>
+            <div class="sample-slot filled"><img src="assets/sample-bustup-2.jpg" alt="Sample 2"></div>
+            <div class="sample-slot filled"><img src="assets/sample-bustup-3.jpg" alt="Sample 3"></div>
+          </div>
+        </div>
+        <div class="sample-group">
+          <div class="sample-group-title">
+            <span>Full Body samples</span>
+          </div>
+          <div class="sample-grid">
+            <div class="sample-slot filled"><img src="assets/sample-fullbody-1.jpg" alt="Sample 1"></div>
+            <div class="sample-slot filled"><img src="assets/sample-fullbody-2.jpg" alt="Sample 2"></div>
+            <div class="sample-slot filled"><img src="assets/sample-fullbody-3.jpg" alt="Sample 3"></div>
+          </div>
+        </div>
+      </div>
 
       <div class="sub-label">Payment Info</div>
-      <div class="payment-box" contenteditable="false">
+      <div class="payment-box">
         Bank: BCA — 1234567890 a/n Nama Kamu<br>
         E-wallet: DANA / OVO — 0812xxxxxxx<br>
         PayPal: you@email.com
@@ -107,7 +161,7 @@
     <!-- ==================== TOT ==================== -->
     <div class="panel" data-panel="tot">
       <span class="sec-label">Terms of Trade</span>
-      <ul class="tot-list" contenteditable="false">
+      <ul class="tot-list">
         <li><span class="num">01</span><span>DP 50% di awal, pelunasan setelah sketsa disetujui.</span></li>
         <li><span class="num">02</span><span>Revisi minor gratis 2x sebelum tahap render final.</span></li>
         <li><span class="num">03</span><span>Estimasi pengerjaan 3–10 hari tergantung antrian &amp; kompleksitas.</span></li>
@@ -122,8 +176,8 @@
       <span class="sec-label">Commission Tracking</span>
       <a class="link-btn" href="https://trello.com/b/xxxxxxx/your-commission-board" target="_blank" rel="noopener">
         <span class="icon">▤</span>
-        <span contenteditable="false" class="linklabel">Open live board on Trello</span>
-        <span class="url" contenteditable="false">trello.com</span>
+        <span class="linklabel">Open live board on Trello</span>
+        <span class="url">trello.com</span>
       </a>
       <div class="board-scroll" id="boardScroll"></div>
     </div>
@@ -132,16 +186,16 @@
     <div class="panel" data-panel="contact">
       <span class="sec-label">Contact Info</span>
       <div class="contact-grid">
-        <div class="contact-item"><span class="k">Email</span><span class="v" contenteditable="false">you@email.com</span></div>
-        <div class="contact-item"><span class="k">Discord</span><span class="v" contenteditable="false">yourname#0000</span></div>
-        <div class="contact-item"><span class="k">Line</span><span class="v" contenteditable="false">yourlineid</span></div>
-        <div class="contact-item"><span class="k">Timezone</span><span class="v" contenteditable="false">GMT+7 (WIB)</span></div>
-        <div class="contact-item"><span class="k">Response</span><span class="v" contenteditable="false">1–2 hari</span></div>
+        <div class="contact-item"><span class="k">Email</span><span class="v">you@email.com</span></div>
+        <div class="contact-item"><span class="k">Discord</span><span class="v">yourname#0000</span></div>
+        <div class="contact-item"><span class="k">Line</span><span class="v">yourlineid</span></div>
+        <div class="contact-item"><span class="k">Timezone</span><span class="v">GMT+7 (WIB)</span></div>
+        <div class="contact-item"><span class="k">Response</span><span class="v">1–2 hari</span></div>
       </div>
     </div>
 
   </div>
-  <footer contenteditable="false" id="footerField">feel free to chat 🖊</footer>
+  <footer id="footerField">feel free to chat 🖊</footer>
 </div>
 
 <script src="js/app.js"></script>
