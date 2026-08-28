@@ -1,0 +1,45 @@
+/* ============================================================
+   BASE — CSS Variables, Reset, Body, Card
+   ============================================================ */
+
+/* ---------- CSS Variables ---------- */
+:root{
+  --paper:#FDF2F8;
+  --paper-2:#F5E6F0;
+  --paper-3:#FADCE8;
+  --ink:#4A3548;
+  --ink-soft:#8B7388;
+  --teal:#A78BFA;
+  --teal-dark:#7C5CBF;
+  --mustard:#F9A8D4;
+  --pink:#C4B5FD;
+  --line:#E8D5E0;
+  --white:#FFFBFE;
+  --mint:#6EE7B7;
+  --peach:#FDBA74;
+  --shadow: 0 6px 20px rgba(74,53,72,0.08);
+  --shadow-lg: 0 16px 48px rgba(74,53,72,0.12);
+}
+
+/* ---------- Reset ---------- */
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+body{
+  background:
+    radial-gradient(circle at 1px 1px, rgba(74,53,72,0.04) 1px, transparent 1px) 0 0/24px 24px,
+    var(--paper);
+  color:var(--ink);
+  font-family:'Quicksand', sans-serif;
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  padding:28px 14px 60px;
+}
+
+/* ---------- Card Wrapper ---------- */
+.card{
+  width:100%;
+  max-width:480px;
+  position:relative;
+
+}

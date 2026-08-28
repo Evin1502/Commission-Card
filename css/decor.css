@@ -1,0 +1,89 @@
+/* ============================================================
+   DECOR — Star Decorations & 4-Pointed Sparkles
+   ============================================================ */
+
+/* ---------- Star Decorations ---------- */
+.star-deco{
+  position:absolute;
+  pointer-events:none;
+  object-fit:contain;
+  z-index:0;
+}
+
+/* ★ s1 — Large hero star, top-right corner, peeks outside card */
+.star-deco.s1{
+  width:110px; height:110px;
+  top:-32px; right:-28px;
+  opacity:.30;
+  animation:starFloat1 14s ease-in-out infinite;
+}
+
+/* ★ s2 — Medium star, bottom-left area */
+.star-deco.s2{
+  width:75px; height:75px;
+  bottom:-22px; left:-16px;
+  opacity:.22;
+  animation:starFloat2 18s ease-in-out infinite;
+}
+
+/* ★ s3 — Small accent, top-left */
+.star-deco.s3{
+  width:36px; height:36px;
+  top:14px; left:12px;
+  opacity:.18;
+  animation:starFloat3 10s ease-in-out infinite;
+}
+
+/* ★ s4 — Tiny twinkle, mid-right edge */
+.star-deco.s4{
+  width:28px; height:28px;
+  top:45%; right:6px;
+  opacity:.15;
+  animation:starFloat4 8s ease-in-out infinite;
+}
+
+/* ★ s5 — Medium-small, bottom-right */
+.star-deco.s5{
+  width:50px; height:50px;
+  bottom:40px; right:-12px;
+  opacity:.20;
+  animation:starFloat5 16s ease-in-out infinite;
+}
+
+/* ---------- 4-Pointed Sparkles ✦ ---------- */
+.sparkle{
+  position:absolute;
+  pointer-events:none;
+  z-index:1;
+}
+/* Each sparkle is built from two pseudo-element "diamond" bars */
+.sparkle::before,
+.sparkle::after{
+  content:'';
+  position:absolute;
+  top:50%; left:50%;
+  border-radius:50%;
+  background:linear-gradient(135deg, var(--teal), var(--mustard));
+}
+.sparkle::before{
+  width:3px;
+  height:100%;
+  transform:translate(-50%,-50%);
+  border-radius:3px;
+}
+.sparkle::after{
+  width:100%;
+  height:3px;
+  transform:translate(-50%,-50%);
+  border-radius:3px;
+}
+
+/* — Individual sparkle placements — */
+.sparkle.sp1{ width:14px; height:14px; top:8%;   left:22%;  animation:twinkle 3s   ease-in-out infinite; }
+.sparkle.sp2{ width:10px; height:10px; top:18%;  right:14%; animation:twinkle 2.4s ease-in-out .5s infinite; }
+.sparkle.sp3{ width:16px; height:16px; top:35%;  left:8%;   animation:twinkle 3.5s ease-in-out 1s infinite; }
+.sparkle.sp4{ width:8px;  height:8px;  top:52%;  left:28%;  animation:twinkle 2.8s ease-in-out .3s infinite; }
+.sparkle.sp5{ width:12px; height:12px; top:65%;  right:10%; animation:twinkle 3.2s ease-in-out 1.4s infinite; }
+.sparkle.sp6{ width:10px; height:10px; top:78%;  left:15%;  animation:twinkle 2.6s ease-in-out .8s infinite; }
+.sparkle.sp7{ width:14px; height:14px; bottom:12%; right:22%; animation:twinkle 3.8s ease-in-out .2s infinite; }
+.sparkle.sp8{ width:8px;  height:8px;  bottom:5%;  left:40%;  animation:twinkle 2.2s ease-in-out 1.6s infinite; }

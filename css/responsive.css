@@ -1,0 +1,33 @@
+/* ============================================================
+   RESPONSIVE — Media Queries
+   ============================================================ */
+
+/* ---------- Music control on narrow viewports ---------- */
+@media (max-width:380px){
+  .music-control{
+    /* adjust when viewport is narrow — move to bottom right of avatar */
+    position:absolute;
+    top:auto;
+    bottom:0;
+    left:calc(50% + 35px);
+    right:auto;
+    transform:none;
+  }
+
+  .music-control button{
+    width:32px;
+    height:32px;
+    font-size:13px;
+  }
+}
+
+@media (max-width:480px){
+  .gallery-pair{
+    grid-template-columns:1fr;
+  }
+}
+@media (max-width:380px){
+  .name{font-size:34px;}
+  .sheet{padding:30px 18px 22px;}
+  .home-gallery-container{max-width:100%;}
+}
